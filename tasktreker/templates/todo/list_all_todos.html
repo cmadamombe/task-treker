@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} All Tasks {% endblock title %}
+
+{% block content %}
+
+<div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">All Todos</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseCardExample">
+                                    <div class="card-body">
+
+    <ul>
+      <!-- Iterate over object_list -->
+      {% for task in tasks %}
+      <!-- Display Objects -->
+      <li>{{ task.title }}</li>
+      <li>{{ task.description }}</li>
+
+      <hr/>
+      <!-- If object_list is empty -->
+      {% empty %}
+      <li>No objects yet.</li>
+      {% endfor %}
+    </ul>
+
+</div>
+</div>
+</div>
+
+{% endblock %}

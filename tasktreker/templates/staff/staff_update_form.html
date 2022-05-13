@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Task Treker | {{ user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="card shadow mb-4">
+                                <!-- Card Header - Accordion -->
+                                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                                    role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                                    <h6 class="m-0 font-weight-bold text-primary">Staff Update</h6>
+                                </a>
+                                <!-- Card Content - Collapse -->
+                                <div class="collapse show" id="collapseCardExample">
+                                    <div class="card-body">
+
+  <form class="form-horizontal" method="post" action="{% url 'staff:update_staff_details' %}" novalidate>
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-3 mb-0">
+        {{ form.title|as_crispy_field }}
+      </div>
+
+      <div class="form-group col-md-3 mb-0">
+        {{ form.gender|as_crispy_field }}
+      </div>
+    </div>
+
+      <div class="form-row">
+
+      <div class="form-group col-md-6 mb-0">
+        {{ form.user|as_crispy_field }}
+      </div>
+
+      <div class="form-group col-md-6 mb-0">
+        {{ form.date_of_birth|as_crispy_field }}
+      </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.staff_phone|as_crispy_field }}
+      </div>
+
+      <div class="form-group col-md-6 mb-0">
+        {{ form.company_name|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.address|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.staff_profile_summary|as_crispy_field }}
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary">Update Staff Information</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- /.card-body -->
+<div class="card-footer">
+  <p class="text-danger">NB: Disabled (greyed out) fields can only be updated by contacting the Administrator.</p>
+</div>
+<!-- /.card-footer-->
+</div>
+</div>
+<!-- /.card -->
+{% endblock %}

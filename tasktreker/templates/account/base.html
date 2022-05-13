@@ -3,8 +3,28 @@
 
 {% block content %}
 <div class="row">
-  <div class="col-md-6 offset-md-3">
-    {% block inner %}{% endblock %}
+<div class="col-lg-6">
+<div class="card card-outline card-primary">
+  <div class="card-header">
+
+    <h3 class="card-title">Task Treker </h3>
+    <div class="card-tools">
+    </div>
+
   </div>
+
+  <div class="card-body">
+
+    {% block inner %}{% endblock %}
+
+</div>
+  <!-- /.card-body -->
+  <div class="card-footer">
+    Task Treker
+  </div>
+  <!-- /.card-footer-->
+</div>
+<!-- /.card -->
+</div>
 </div>
 {% endblock %}
