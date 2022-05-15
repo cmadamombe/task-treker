@@ -12,15 +12,11 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
 DJANGO_SETTINGS_MODULE = os.getenv("DJANGO_SETTINGS_MODULE")
 DJANGO_ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS")
 DJANGO_ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
-DATABASE_URL = os.getenv("DATABASE_URL")
 REDIS_URL = ''
 
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES["default"] = env.db("DATABASE_URL")  # noqa F405
-DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
-DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
-
+DATABASE_URL = os.getenv("DATABASE_URL")
 # CACHES
 # ------------------------------------------------------------------------------
 CACHES = {
