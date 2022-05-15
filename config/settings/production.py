@@ -8,7 +8,7 @@ import os
 DJANGO_SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 SECRET_KEY = os.getenv("SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS ")
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
 DJANGO_SETTINGS_MODULE = os.getenv("DJANGO_SETTINGS_MODULE")
 DJANGO_ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS")
 DJANGO_ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
