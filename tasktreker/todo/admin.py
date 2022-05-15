@@ -28,7 +28,7 @@ class TodoAdmin(admin.ModelAdmin):
     )
     # Chooses the fields to display on the form
     list_display = ["title", 'description', "priority", "status", "datecompleted", 'client',
-                    "assigned"]
+                    "assigned", 'created_by']
     # The fields that will be used to search the database
     search_fields = ["title", "description", 'client']
     # Field the database according to the selected fields by default
