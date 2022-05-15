@@ -14,6 +14,18 @@ DJANGO_ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
 REDIS_URL = ''
 
 # DATABASES
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tasktreker$tasktreker',
+        'USER': 'tasktreker',
+        'PASSWORD': 'Password87034',
+        'HOST': 'tasktreker.mysql.pythonanywhere-services.com',
+    }
+}
+
+
 # ------------------------------------------------------------------------------
 DATABASE_URL = os.getenv("DATABASE_URL")
 # CACHES
