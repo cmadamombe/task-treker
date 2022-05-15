@@ -1,12 +1,19 @@
 from .base import *  # noqa
 from .base import env
+import os
 
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = env("DJANGO_SECRET_KEY")
+DJANGO_SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["chuckygari.com"])
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS ")
+DJANGO_SETTINGS_MODULE = os.getenv("DJANGO_SETTINGS_MODULE")
+DJANGO_ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS")
+DJANGO_ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
+REDIS_URL = ''
 
 # DATABASES
 # ------------------------------------------------------------------------------

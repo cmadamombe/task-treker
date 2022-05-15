@@ -16,7 +16,6 @@ django-allauth==0.50.0  # https://github.com/pennersr/django-allauth
 django-crispy-forms==1.14.0  # https://github.com/django-crispy-forms/django-crispy-forms
 crispy-bootstrap5==0.6  # https://github.com/django-crispy-forms/crispy-bootstrap5
 django-redis==5.2.0  # https://github.com/jazzband/django-redis
-django-debug-toolbar
 
 
 # PRECAUTION: avoid production dependencies that aren't in development
@@ -29,3 +28,11 @@ hiredis==2.0.0  # https://github.com/redis/hiredis-py
 # Django
 # ------------------------------------------------------------------------------
 django-anymail==8.5  # https://github.com/anymail/django-anymail
+
+# ------------------------------------------------------------------------------
+# New Packages for production
+# ------------------------------------------------------------------------------
+django-debug-toolbar
+django_extensions
+python-dotenv
+# ------------------------------------------------------------------------------
