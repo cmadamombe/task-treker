@@ -15,7 +15,7 @@ REDIS_URL = ''
 
 # DATABASES
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tasktreker$tasktreker',
@@ -23,8 +23,18 @@ DATABASES = {
         'PASSWORD': 'Password87034',
         'HOST': 'tasktreker.mysql.pythonanywhere-services.com',
     }
-}
+}'''
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'tasktreker',
+        'USER': 'cmadamombe',
+        'PASSWORD': 'Password87034',
+        'HOST': 'pythondjangoprojects.postgres.database.azure.com',
+        'PORT': '5432',
+    }
+}
 
 # ------------------------------------------------------------------------------
 DATABASE_URL = os.getenv("DATABASE_URL")
