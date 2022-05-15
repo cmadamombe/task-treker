@@ -6,7 +6,6 @@ import os
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 DJANGO_SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-SECRET_KEY = os.getenv("SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 DJANGO_SETTINGS_MODULE = os.getenv("DJANGO_SETTINGS_MODULE")
 DJANGO_ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS")
