@@ -8,8 +8,8 @@ import os
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
-# ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", 'tasktreker.pythonanywhere.com']
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", default=["tasktreker.pythonanywhere.com"])
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", 'tasktreker.pythonanywhere.com']
+
 # ADMIN
 # ------------------------------------------------------------------------------
 
