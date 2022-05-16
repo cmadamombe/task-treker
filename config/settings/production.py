@@ -15,24 +15,13 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", default=["tasktreker.pythonany
 
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES["default"] = os.getenv("DATABASE_URL")  # noqa F405
+# DATABASES["default"] = os.getenv("DATABASE_URL")  # noqa F405
 # DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
 # DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
 
 
 # DATABASES
-'''DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tasktreker$tasktreker',
-        'USER': 'tasktreker',
-        'PASSWORD': 'Password87034',
-        'HOST': 'tasktreker.mysql.pythonanywhere-services.com',
-    }
-}'''
 
-
-'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -43,7 +32,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-'''
+
 
 # ------------------------------------------------------------------------------
 # CACHES
