@@ -5,15 +5,22 @@ import os
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-DJANGO_SETTINGS_MODULE = os.getenv("DJANGO_SETTINGS_MODULE")
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", 'tasktreker.pythonanywhere.com']
-DJANGO_ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
+ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
+# ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", 'tasktreker.pythonanywhere.com']
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", default=["tasktreker.pythonanywhere.com"])
+# ADMIN
+# ------------------------------------------------------------------------------
+
+# DATABASES
+# ------------------------------------------------------------------------------
+DATABASES["default"] = os.getenv.db("DATABASE_URL")  # noqa F405
+DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa F405
+DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
 
 
 # DATABASES
-
 '''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -39,7 +46,6 @@ DATABASES = {
 '''
 
 # ------------------------------------------------------------------------------
-DATABASE_URL = os.getenv("DATABASE_URL")
 # CACHES
 # ------------------------------------------------------------------------------
 
@@ -82,8 +88,12 @@ SECURE_CONTENT_TYPE_NOSNIFF = env.bool(
     "DJANGO_SECURE_CONTENT_TYPE_NOSNIFF", default=True
 )
 
+# STATIC
+# ------------------------
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # MEDIA
 # ------------------------------------------------------------------------------
+
 
 # EMAIL
 # ------------------------------------------------------------------------------
@@ -100,10 +110,6 @@ EMAIL_SUBJECT_PREFIX = env(
     default="[tasktreker]",
 )
 
-# ADMIN
-# ------------------------------------------------------------------------------
-# Django Admin URL regex.
-ADMIN_URL = env("DJANGO_ADMIN_URL")
 
 # Anymail
 # ------------------------------------------------------------------------------
