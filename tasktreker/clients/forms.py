@@ -21,11 +21,11 @@ GENDER_CHOICES = (
 )
 
 class AddClientForm(UserCreationForm):  # As the base we used the built-in UserCreationForm, which defines the username and password fields. We extend this to include username, email and password.
-    email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
+    email = forms.EmailField(required=False)
+    first_name = forms.CharField(required=False)
+    last_name = forms.CharField(required=False)
     # Here we add the extra form fields that we will use to create another model object when the new user is created (Clients model)
-    client_phone = forms.CharField(required=True)
+    client_phone = forms.CharField(required=False)
 
     class Meta(UserCreationForm.Meta):
         model = User

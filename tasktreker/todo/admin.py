@@ -14,7 +14,7 @@ class TodoAdmin(admin.ModelAdmin):
             # 'classes': ('collapse',), #Adds the collapse class to the fieldset.
             # This will apply a JavaScript accordion style that will make the fieldset appear collapsed when
             # the form first displays
-            'fields': (("title", 'description'), ("priority", "status"), 'datecompleted')
+            'fields': (("title", 'description'), ("priority", "status", 'type'), 'datecompleted')
         }),
 
         ('Users Details:', {  # The second fieldset/group
@@ -27,11 +27,11 @@ class TodoAdmin(admin.ModelAdmin):
         }),
     )
     # Chooses the fields to display on the form
-    list_display = ["title", 'description', "priority", "status", "datecompleted", 'client',
+    list_display = ["title", 'description', "priority", "status", 'type', "datecompleted", 'client',
                     "assigned", 'created_by']
     # The fields that will be used to search the database
     search_fields = ["title", "description", 'client']
     # Field the database according to the selected fields by default
-    list_filter = ('assigned',"status")
+    list_filter = ('assigned',"status", 'type')
     # The results are in ascending order. To display results in descending order, use (-field_name e.g -user)
-    ordering = ('title',)
+    ordering = ('-created_date',)

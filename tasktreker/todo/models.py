@@ -17,14 +17,21 @@ class Todo(models.Model):
     )
 
     STATUS_CHOICES = (
-       ('Cancelled', 'Cancelled'),
-        ('Completed', 'Completed'),
         ('In Progress', 'In Progress'),
-         ('On Hold', 'On Hold'),
+        ('Completed', 'Completed'),
+        ('Cancelled', 'Cancelled'),
+        ('On Hold', 'On Hold'),
+        ('Continuous', 'Continuous'),
+    )
+
+    # added type choices 16 May 2022 - Chuck
+    TYPE_CHOICES = (
+        ('Business', 'Business'),
+        ('Personal', 'Personal'),
     )
 
     title = models.CharField(max_length=100, verbose_name='Title')
-    description = models.TextField(max_length=100, blank=True, verbose_name='Description')
+    description = models.TextField(max_length=2000, blank=True, verbose_name='Description')
     datecompleted = models.DateTimeField(null = True, blank=True, verbose_name='Date Completed')
     priority = models.CharField(max_length=100, choices=PRIORITY_CHOICES, verbose_name='Priority')
     status = models.CharField(max_length=100, default= 'null', choices=STATUS_CHOICES, verbose_name='Status')
@@ -33,6 +40,8 @@ class Todo(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Created By')
     created_date = models.DateTimeField(auto_now_add=True, editable=False, verbose_name='Date Created')
     modified_date = models.DateTimeField(auto_now=True, null=True, blank=True, editable=False, verbose_name='Date Modified')
+    # added type choices 16 May 2022 - Chuck
+    type = models.CharField(max_length=100, default='null', choices=TYPE_CHOICES, verbose_name='Type')
 
     class Meta:
         """Meta definition for Todo"""

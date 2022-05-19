@@ -19,7 +19,6 @@ urlpatterns = [
     path("clients/", include("tasktreker.clients.urls", namespace="clients")),
     path("staff/", include("tasktreker.staff.urls", namespace="staff")),
     path("tasks/", include("tasktreker.todo.urls", namespace="todo")),
-
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

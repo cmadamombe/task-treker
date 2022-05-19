@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} Task Details {% endblock title %}
+{% block content %}
+        <div class="card shadow mb-4">
+        <!-- Card Header - Accordion -->
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+               role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary"> Task Details </h6> </a>
+                    <!-- Card Content - Collapse -->
+                    <div class="collapse show" id="collapseCardExample">
+                        <div class="card-body">
+
+
+                          <p><strong>Title:</strong> {{ object.title }}</p>
+                          <hr>
+                          <p><strong>Decsription:</strong> {{ object.description }}</p>
+                          <hr>
+                          <p><strong>Task Priority:</strong> {{ object.priority }}</p>
+                          <hr>
+                          <p><strong>Task Status:</strong> {{ object.status }}</p>
+                          <hr>
+                          <p><strong>Task Client:</strong> {{ object.client }}</p>
+                          <hr>
+                          <p><strong>Assigned To:</strong> {{ object.assigned }}</p>
+                          <hr>
+                          <p><strong>Created By:</strong> {{ object.created_by }}</p>
+                          <hr>
+                          <p><strong>Date Created:</strong> {{ object.created_date }}</p>
+                          <hr>
+                          <p><strong>Last Modified Date:</strong> {{ object.modified_date }}</p>
+                          <hr>
+                          <p><strong>Date Completed:</strong> {{ object.datecompleted }}</p>
+                          <hr>
+                          <p><strong>Task Type:</strong> {{ object.type }}</p>
+                          <hr>
+
+                       </div>
+                   </div>
+       </div>
+{% endblock %}

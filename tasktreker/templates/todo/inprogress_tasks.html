@@ -1,47 +1,70 @@
+
 {% extends "base.html" %}
 {% load i18n %}
-{% block title %} All Tasks {% endblock title %}
+{% block title %} All Tasks In Progress {% endblock title %}
 {% block content %}
         <div class="card shadow mb-4">
         <!-- Card Header - Accordion -->
             <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
                role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                <h6 class="m-0 font-weight-bold text-primary">Tasks In Progress</h6> </a>
+                <h6 class="m-0 font-weight-bold text-primary">All Tasks In Progress </h6> </a>
                     <!-- Card Content - Collapse -->
                     <div class="collapse show" id="collapseCardExample">
                         <div class="card-body">
-
-                              <table class="table table-bordered">
+                          <div class="table-responsive">
+                              <table class="table table-striped">
                                       <thead>
                                               <tr>
                                                   <th>Title</th>
-                                                  <th>Description</th>
-                                                  <th>Completion Date</th>
-                                                  <th>Priority</th>
-                                                  <th>Status</th>
                                                   <th>Client</th>
                                                   <th>Assigned</th>
+                                                  <th>Priority</th>
+                                                  <th>Status</th>
+                                                  <th>Type</th>
+                                                  <th>Completion Date</th>
+                                                  <th>Actions</th>
                                               </tr>
                                     </thead>
                                     <tbody>
+                                                  {% if tasks %}
                                                   {% for task in tasks %}
                                           <tr>
-                                                  <td>{{ task.title }}</td>
-                                                  <td>{{ task.description }}</td>
-                                                  <td>{{ task.datecompleted }}</td>
-                                                  <td>{{ task.priority }}</td>
-                                                  <td>{{ task.status }}</td>
+                                                  <td><a href="{% url 'todo:update_task' task.id%}">{{ task.title }}</a></td>
                                                   <td>{{ task.client }}</td>
                                                   <td>{{ task.assigned }}</td>
+                                                  <td>
+                                                    <span class="badge badge-primary rounded-pill d-inline">
+                                                    {{ task.priority }}
+                                                    </span>
+                                                  </td>
+                                                  <td>
+                                                    <span
+                                                      class="badge badge-success rounded-pill d-inline">
+                                                    {{ task.status }}
+                                                    </span>
+                                                  </td>
+                                                  <td>{{ task.type }}</td>
+                                                  <td>{{ task.datecompleted }}</td>
+                                                  <td>
+                                                       <a href="{% url 'todo:update_task' task.id%}"><span class="glyphicon glyphicon-pencil" >Update</span></a> |
+                                                       <a href="{% url 'todo:task_detail' task.id%}">View</span></a>
+
+                                                  </td>
                                           </tr>
-                                                    {% empty %}
+                                                    {% endfor %}
+                                                    {% else %}
                                           <tr>
                                                     <td colspan="7"><em class="text-muted">No records found!</em></td>
                                           </tr>
-                                                    {% endfor %}
+                                                    {% endif %}
                                   </tbody>
                              </table>
+                          </div>
                        </div>
                    </div>
        </div>
 {% endblock %}
+
+
+
+

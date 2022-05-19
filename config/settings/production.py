@@ -20,7 +20,6 @@ ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", 'tasktreker.pythonanywhere
 # DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa F405
 
 
-# DATABASES
 
 DATABASES = {
     'default': {
