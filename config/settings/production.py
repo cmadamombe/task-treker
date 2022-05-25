@@ -5,7 +5,14 @@ import os
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+# Python anywhere secret key settings
+# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
+# Azure secret key settings
+# SECRET_KEY = os.environ['SECRET_KEY']
+
+SECRET_KEY = 'S6Jk9EHbLNfnk0NvMx9AsNkIFGfY5SaSnQtyR3RxYrBrsUUvO1QL0NhKN1XVpD6R'
+
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", 'tasktreker.pythonanywhere.com']
