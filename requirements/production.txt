@@ -16,5 +16,4 @@ django-anymail==8.5  # https://github.com/anymail/django-anymail
 django-debug-toolbar
 django_extensions
 python-dotenv
-mysqlclient
 # ------------------------------------------------------------------------------

@@ -83,6 +83,8 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    'django_filters',
+    'widget_tweaks',
 ]
 
 # Your stuff: custom apps go here
@@ -203,7 +205,7 @@ To use it, just add this to your settings.py:
 # Want forever-cacheable files and compression support? Just add this to your settings.py:
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 
 # MEDIA

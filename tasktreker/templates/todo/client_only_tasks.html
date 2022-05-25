@@ -1,6 +1,6 @@
-
 {% extends "base.html" %}
 {% load i18n %}
+{% load widget_tweaks %}
 {% block title %} All Clients Tasks {% endblock title %}
 {% block content %}
         <div class="card shadow mb-4">
@@ -11,13 +11,45 @@
                     <!-- Card Content - Collapse -->
                     <div class="collapse show" id="collapseCardExample">
                         <div class="card-body">
+
+                          <!-- Begin search form -->
+
+                            <form method="get">
+                                  <div class="well">
+                                      <div class="row">
+                                              <div class="form-group col-sm-4 col-md-3">
+                                                    {{ filter.form.title.label_tag }}
+                                                    {% render_field filter.form.title class="form-control" %}
+                                              </div>
+                                              <div class="form-group col-sm-4 col-md-3">
+                                                     {{ filter.form.description.label_tag }}
+                                                     {% render_field filter.form.description class="form-control" %}
+                                              </div>
+                                              <div class="form-group col-sm-4 col-md-3">
+                                                     {{ filter.form.priority.label_tag }}
+                                                     {% render_field filter.form.priority class="form-control" %}
+                                              </div>
+                                              <div class="form-group col-sm-4 col-md-3">
+                                                     {{ filter.form.status.label_tag }}
+                                                     {% render_field filter.form.status class="form-control" %}
+                                              </div>
+                                      </div>
+                                      <button type="submit" class="btn btn-primary">
+                                      <span class="glyphicon glyphicon-search"></span> Search
+                                      </button>
+                                  </div>
+                            </form>
+                          <br>
+
+                       <!-- End search form -->
+
                           <div class="table-responsive">
                               <table class="table table-striped">
                                       <thead>
                                               <tr>
                                                   <th>Title</th>
+                                                  <th>Description</th>
                                                   <th>Client</th>
-                                                  <th>Assigned</th>
                                                   <th>Priority</th>
                                                   <th>Status</th>
                                                   <th>Type</th>
@@ -27,11 +59,14 @@
                                     </thead>
                                     <tbody>
                                                   {% if tasks %}
-                                                  {% for task in tasks %}
+                                                  {% for task in filter.qs %}
                                           <tr>
-                                                  <td><a href="{% url 'todo:update_task' task.id%}">{{ task.title }}</a></td>
+                                                  <td><a href="{% url 'todo:update_task' task.id %}">{{ task.title }}</a></td>
+
+                                                  <td>{{ task.description |truncatechars:40 }}</td>
+
                                                   <td>{{ task.client }}</td>
-                                                  <td>{{ task.assigned }}</td>
+
                                                   <td>
                                                     <span class="badge badge-primary rounded-pill d-inline">
                                                     {{ task.priority }}
@@ -46,9 +81,7 @@
                                                   <td>{{ task.type }}</td>
                                                   <td>{{ task.datecompleted }}</td>
                                                   <td>
-                                                       <a href="{% url 'todo:update_task' task.id%}"><span class="glyphicon glyphicon-pencil" >Update</span></a> |
                                                        <a href="{% url 'todo:task_detail' task.id%}">View</span></a>
-
                                                   </td>
                                           </tr>
                                                     {% endfor %}
