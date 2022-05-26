@@ -9,17 +9,22 @@ import os
 # SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # Azure secret key settings
-# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-SECRET_KEY = 'S6Jk9EHbLNfnk0NvMx9AsNkIFGfY5SaSnQtyR3RxYrBrsUUvO1QL0NhKN1XVpD6R'
+# SECRET_KEY = 'S6Jk9EHbLNfnk0NvMx9AsNkIFGfY5SaSnQtyR3RxYrBrsUUvO1QL0NhKN1XVpD6R'
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ADMIN_URL = os.getenv("DJANGO_ADMIN_URL")
 
-ALLOWED_HOSTS = ['tasktreker.azurewebsites.net', 'tasktreker.pythonanywhere.com']
+# ALLOWED_HOSTS = ['tasktreker.azurewebsites.net', 'tasktreker.pythonanywhere.com']
+
+# You can retrieve this URL at runtime with the code, os.environ['WEBSITE_HOSTNAME'].
+# App Service automatically sets the WEBSITE_HOSTNAME environment variable to the app's URL.
+
+ALLOWED_HOSTS = os.environ['WEBSITE_HOSTNAME']
 
 # ADMIN
 # ------------------------------------------------------------------------------
+ADMIN_URL = os.environ["DJANGO_ADMIN_URL"]
 
 # DATABASES
 # ------------------------------------------------------------------------------
@@ -32,10 +37,10 @@ ALLOWED_HOSTS = ['tasktreker.azurewebsites.net', 'tasktreker.pythonanywhere.com'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tasktreker',
-        'USER': 'cmadamombe',
-        'PASSWORD': 'Password87034',
-        'HOST': 'pythondjangoprojects.postgres.database.azure.com',
+        'NAME': os.environ['DBNAME'],
+        'USER': os.environ['DBUSER'],
+        'PASSWORD': os.environ['DBPASS'],
+        'HOST': os.environ['DBHOST'],
         'PORT': '5432',
     }
 }
