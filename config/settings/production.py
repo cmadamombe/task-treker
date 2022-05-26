@@ -15,12 +15,12 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 
-# ALLOWED_HOSTS = ['tasktreker.azurewebsites.net', 'tasktreker.pythonanywhere.com']
+ALLOWED_HOSTS = ['tasktreker.azurewebsites.net', ]
 
 # You can retrieve this URL at runtime with the code, os.environ['WEBSITE_HOSTNAME'].
 # App Service automatically sets the WEBSITE_HOSTNAME environment variable to the app's URL.
 
-ALLOWED_HOSTS = os.environ['WEBSITE_HOSTNAME']
+# ALLOWED_HOSTS = os.environ['WEBSITE_HOSTNAME']
 
 # ADMIN
 # ------------------------------------------------------------------------------
