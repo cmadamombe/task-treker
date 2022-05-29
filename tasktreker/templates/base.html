@@ -138,14 +138,16 @@
                         <hr>
                         <a class="collapse-item" href="{% url 'todo:createtodo' %}">+ New Tasks</a>
                         <hr>
-                        <a class="collapse-item" href="{% url 'todo:personal_tasks' %}">Personal Tasks</a>
-                        <a class="collapse-item" href="{% url 'todo:critical_tasks' %}">Critical Tasks</a>
                         <a class="collapse-item" href="{% url 'todo:alltodo' %}">All Tasks</a>
+                        <a class="collapse-item" href="{% url 'todo:critical_tasks' %}">Critical Tasks</a>
+                        <a class="collapse-item" href="{% url 'todo:personal_tasks' %}">Personal Tasks</a>
                         <hr>
+                      <!--
                         <a class="collapse-item" href="{% url 'todo:inprogress_tasks' %}">In Progress</a>
                         <a class="collapse-item" href="{% url 'todo:completed_tasks' %}">Completed</a>
                         <a class="collapse-item" href="{% url 'todo:onhold_tasks' %}">On Hold</a>
                         <a class="collapse-item" href="{% url 'todo:cancelled_tasks' %}">Cancelled</a>
+                       -->
                     </div>
                 </div>
             </li>
